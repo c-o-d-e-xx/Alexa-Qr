@@ -1,6 +1,6 @@
 {
-  "version": "v1.2.3",
-  "versionCode": 123,
-  "zipUrl": "https://github.com/c-o-d-e-xx/Emojify/releases/download/V1.2.3/Emojify-V1.2.3.zip",
-  "changelog": "https://raw.githubusercontent.com/c-o-d-e-xx/Emojify/main/Changelog.md"
+  "version": "v1.2.6",
+  "versionCode": 126,
+  "zipUrl": "https://github.com/c-o-d-e-xx/Emojify/releases/download/V1.2.6/Emojify-V1.2.6.zip",
+  "changelog": "https://raw.githubusercontent.com/c-o-d-e-xx/Emojify/master/changelog.md"
 }

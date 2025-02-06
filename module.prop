@@ -1,7 +1,7 @@
 id=Emojify
 name=Emojify
-version=v1.2.3
-versionCode=123
+version=v1.2.6
+versionCode=126
 author=Codex
 description=Systemlessly replaces emoji font with ios emoji and windows
 updateJson=https://raw.githubusercontent.com/c-o-d-e-xx/Emojify/master/updater.json

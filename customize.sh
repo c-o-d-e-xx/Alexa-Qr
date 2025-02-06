@@ -11,15 +11,16 @@ PROPFILE=false
 POSTFSDATA=false
 LATESTARTSERVICE=true
 
-ui_print "*******************************"
-ui_print "*    Emojify V 1.2.3 🚀       *"
-ui_print "*******************************"
+ui_print "*******"
+ui_print "*    Emojify V 1.2.6 🚀       *"
+ui_print "*******"
 
 # Definitions
 FONT_DIR="$MODPATH/system/fonts"
 IOS_EMOJI="IosEmoji.ttf"
 WINDOWS_EMOJI="Windows_Emoji.ttf"
 TARGET_FONT="NotoColorEmoji.ttf"
+BACKUP_FONT="backupemoji.ttf"
 
 # Emoji selection options (using positional parameters for sh compatibility)
 OPTION_0="default"
@@ -47,6 +48,23 @@ replace_system_font() {
             ;;
     esac
 
+    # Create a backup of the default font if it doesn't already exist
+    if [ ! -f "$FONT_DIR/$BACKUP_FONT" ]; then
+        ui_print "- Backup of default emoji font not found. Creating backup..."
+        if [ -f "$FONT_DIR/$TARGET_FONT" ]; then
+            cp -f "$FONT_DIR/$TARGET_FONT" "$FONT_DIR/$BACKUP_FONT" || {
+                ui_print "- Failed to create backup of default emoji font"
+                exit 1
+            }
+            ui_print "- Backup created: $BACKUP_FONT"
+        else
+            ui_print "- Default emoji font not found. Skipping backup."
+        fi
+    else
+        ui_print "- Backup already exists. Proceeding with emoji replacement..."
+    fi
+
+    # Replace the system emoji font with the selected font
     if [ -f "$FONT_DIR/$selected_font" ]; then
         ui_print "- Replacing system emoji font with $1 emojis"
         cp -f "$FONT_DIR/$selected_font" "$FONT_DIR/$TARGET_FONT" || {
